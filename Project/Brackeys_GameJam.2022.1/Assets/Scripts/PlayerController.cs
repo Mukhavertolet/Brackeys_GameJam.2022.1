@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool hasKey = false;
     
-    public GameObject door;
+    //public GameObject door;
 
    
     private void OnTriggerStay2D(Collider2D other)
@@ -18,13 +18,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Door" && hasKey == true)
-        {
-            collision.collider.isTrigger = true;
-           
-        }
-    }
-    
 }
