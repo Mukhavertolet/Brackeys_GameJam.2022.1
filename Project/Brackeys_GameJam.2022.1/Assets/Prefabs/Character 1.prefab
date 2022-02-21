@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7395509539077871266}
   - component: {fileID: 7395509539077871277}
   - component: {fileID: 7395509539077871276}
-  - component: {fileID: 7395509539077871267}
+  - component: {fileID: -7713617915683019478}
   - component: {fileID: 7395509539077871279}
   m_Layer: 9
   m_Name: Character 1
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -193,7 +193,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7395509539077871267
+--- !u!114 &-7713617915683019478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7395509539077871264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91f236e348ee50649a0c78d230403813, type: 3}
+  m_Script: {fileID: 11500000, guid: 89cf7d9bd4186994d8c42c790fe4c272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundLayerMask:
@@ -210,7 +210,7 @@ MonoBehaviour:
     m_Bits: 256
   moveSpeed: 4
   jumpDir: {x: 0, y: 1}
-  jumpStrength: 18
+  jumpStrength: 8
   boxCollider2D: {fileID: 7395509540398572390}
 --- !u!114 &7395509539077871279
 MonoBehaviour:
