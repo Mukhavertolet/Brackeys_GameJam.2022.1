@@ -457,7 +457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
-  door: {fileID: 370746311}
 --- !u!1 &339531163
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,18 +594,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 370746311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c86b325dd9efba47b89613e08e311c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7853c244cf645ff44904104b3b2e3889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Doors: {fileID: 370746311}
-  Player: {fileID: 169326645}
-  Hint: {fileID: 0}
-  PlayerDetect: 0
-  Pos: {fileID: 169326647}
-  width: 1
-  height: 2
-  WhatisPlayer:
-    m_Bits: 512
+  sprites:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!61 &370746313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -631,7 +624,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!212 &370746314
 SpriteRenderer:
@@ -692,7 +685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370746311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.02, y: -0.49, z: 0}
+  m_LocalPosition: {x: -4.02, y: -0.817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

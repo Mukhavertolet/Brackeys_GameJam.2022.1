@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Key
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Door
+  - Key
   - Ground
   - Player
   - 
@@ -41,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 986938787
+    locked: 0
+  - name: Door
+    uniqueID: 2368096863
+    locked: 0
+  - name: Key
+    uniqueID: 3009589483
+    locked: 0
+  - name: Character
+    uniqueID: 1331550225
+    locked: 0
+  - name: UI
+    uniqueID: 3926695735
     locked: 0
