@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement1 : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayerMask;
 
@@ -31,8 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        gameObject.transform.Translate(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
-
+        gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
 
     }
 

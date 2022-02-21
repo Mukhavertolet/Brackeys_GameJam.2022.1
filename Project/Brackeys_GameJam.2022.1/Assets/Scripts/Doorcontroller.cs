@@ -15,7 +15,7 @@ public class Doorcontroller : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Character" && collision.gameObject.GetComponent<PlayerController>().hasKey == true)
+        if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerController>().hasKey == true)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
             collision.otherCollider.isTrigger = true;

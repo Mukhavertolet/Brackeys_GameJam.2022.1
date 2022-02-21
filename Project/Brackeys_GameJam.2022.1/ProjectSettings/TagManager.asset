@@ -42,3 +42,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Doors
+    uniqueID: 738699663
+    locked: 0
+  - name: 
+    uniqueID: 2598669297
+    locked: 0
+  - name: New Layer
+    uniqueID: 3127674119
+    locked: 0
+  - name: New Layer
+    uniqueID: 2073779109
+    locked: 0
+  - name: New Layer
+    uniqueID: 89295009
+    locked: 0
+  - name: Player
+    uniqueID: 768684321
+    locked: 0
