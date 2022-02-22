@@ -226,8 +226,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  isHiding: 0
+  allowWalking: 1
+  isGrounded: 0
   isStaying: 0
   objectForInteraction: {fileID: 0}
+  hidingSpeed: 5
+  headSprite: {fileID: 7395509540091896916}
+  bodySprite: {fileID: 7395509538557456803}
+  legLSprite: {fileID: 7395509539298400918}
+  legRSprite: {fileID: 7395509540270610009}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  darkColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  colorChangeStep: 1
 --- !u!95 &6392918688230050314
 Animator:
   serializedVersion: 3

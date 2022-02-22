@@ -952,8 +952,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7395509539077871279, guid: 54448ca1477f0174bb334e86117e2d30, type: 3}
-      propertyPath: hidingSpeed
-      value: 5
+      propertyPath: colorChangeStep
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54448ca1477f0174bb334e86117e2d30, type: 3}
