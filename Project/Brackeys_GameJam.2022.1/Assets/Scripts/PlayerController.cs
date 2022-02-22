@@ -172,12 +172,12 @@ public class PlayerController : MonoBehaviour
         int i = 0;
         float t = 0;
 
-        while (Vector2.Distance(hidingChar.transform.position, hidePos) < 0.6)
+        while (Vector2.Distance(hidingChar.transform.position, hidePos) < 1.3f)
         {
             t += Time.deltaTime * speed;
             if (i >= 1000)
                 break;
-            hidingChar.transform.position = Vector2.MoveTowards(initialPos, new Vector2(hidePos.x + (0.7f * hidingChar.transform.localScale.x), hidePos.y), t);
+            hidingChar.transform.position = Vector2.MoveTowards(initialPos, new Vector2(hidePos.x + (2f * hidingChar.transform.localScale.x), hidePos.y), t);
             i++;
             Debug.Log("occccrwehf892fesFDSSF");
             yield return null;
