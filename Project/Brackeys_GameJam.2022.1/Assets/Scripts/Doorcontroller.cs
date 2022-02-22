@@ -27,8 +27,6 @@ public class Doorcontroller : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
         isOpened = true;
-
-
     }
 
     public void ShowPrompt()

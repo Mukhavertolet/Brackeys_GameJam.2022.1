@@ -17,10 +17,12 @@ public class PlayerMovementReal : MonoBehaviour
     private Animator animator;
     private string currentAnimation;
 
+    private PlayerController playerController;
 
 
     private void Awake()
     {
+        playerController = gameObject.GetComponent<PlayerController>();
         jumpDir = new Vector2(0, 1);
     }
 
@@ -33,9 +35,8 @@ public class PlayerMovementReal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && playerController.allowWalking)
             Jump();
 
         float direction = Input.GetAxis("Horizontal");
@@ -50,10 +51,8 @@ public class PlayerMovementReal : MonoBehaviour
             {
                 transform.localScale = new Vector2(-1, 1);
             }
-
-
-            
-            ChangeAnimation("WalkReal");
+            if (playerController.allowWalking)
+                ChangeAnimation("WalkReal");
         }
         else
         {
@@ -64,7 +63,8 @@ public class PlayerMovementReal : MonoBehaviour
 
     private void FixedUpdate()
     {
-        gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
+        if (playerController.allowWalking)
+            gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
     }
 
 
@@ -88,6 +88,6 @@ public class PlayerMovementReal : MonoBehaviour
 
         animator.Play(animation);
         currentAnimation = animation;
-            
+
     }
 }

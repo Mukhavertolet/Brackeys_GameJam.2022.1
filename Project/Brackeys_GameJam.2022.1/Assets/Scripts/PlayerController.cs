@@ -6,14 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     public bool hasKey = false;
 
+    public bool isHiding = false;
+    public bool allowWalking = true;
+
+
     [SerializeField] private bool isStaying = false;
     [SerializeField] private GameObject objectForInteraction;
+
+    [SerializeField] private float hidingSpeed = 10;
 
     //public GameObject door;
 
 
     private void Update()
     {
+
         if (isStaying)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -43,6 +50,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("change door sprite");
             doorcontroller.OpenDoor();
         }
+        else if (objectForInteraction.CompareTag("Rock"))
+        {
+            RockController rockController = objectForInteraction.GetComponent<RockController>();
+            rockController.ShowPrompt();
+        }
     }
 
 
@@ -65,7 +77,13 @@ public class PlayerController : MonoBehaviour
                 objectForInteraction.GetComponent<Doorcontroller>().HidePrompt();
             }
 
+            if (objectForInteraction.CompareTag("Rock"))
+            {
+                objectForInteraction.GetComponent<RockController>().HidePrompt();
+            }
+
             isStaying = false;
+            objectForInteraction = null;
         }
 
 
@@ -88,7 +106,25 @@ public class PlayerController : MonoBehaviour
                 }
 
 
-            //case fkwemnfwejonof
+            case "Rock":
+                {
+                    RockController rockController = interactedObject.GetComponent<RockController>();
+
+                    if (!isHiding)
+                    {
+                        allowWalking = false;
+                        StartCoroutine(Hide(gameObject, gameObject.transform.position, rockController.hidePoint.transform.position, hidingSpeed));
+                        isHiding = true;
+                    }
+                    else
+                    {
+                        StartCoroutine(UnHide(gameObject, gameObject.transform.position, rockController.hidePoint.transform.position, hidingSpeed));
+                        isHiding = false;
+                        allowWalking = true;
+                    }
+
+                    break;
+                }
 
 
             default:
@@ -96,6 +132,46 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    public IEnumerator Hide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
+    {
+
+        int i = 0;
+        float t = 0;
+
+        while (Vector2.Distance(hidingChar.transform.position, hidePos) > 0.1)
+        {
+            t += Time.deltaTime * speed;
+            if (i >= 1000)
+                break;
+            hidingChar.transform.position = Vector2.MoveTowards(initialPos, hidePos, t);
+            i++;
+            Debug.Log("occccrwehf892fesFDSSF");
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator UnHide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
+    {
+        int i = 0;
+        float t = 0;
+
+        while (Vector2.Distance(hidingChar.transform.position, hidePos) < 0.6)
+        {
+            t += Time.deltaTime * speed;
+            if (i >= 1000)
+                break;
+            hidingChar.transform.position = Vector2.MoveTowards(initialPos, new Vector2(hidePos.x + (0.7f * hidingChar.transform.localScale.x), hidePos.y), t);
+            i++;
+            Debug.Log("occccrwehf892fesFDSSF");
+            yield return null;
+        }
+
+
+        yield return null;
     }
 
 
