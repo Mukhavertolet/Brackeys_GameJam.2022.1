@@ -38,7 +38,9 @@ public class PlayerController : MonoBehaviour
         {
             Doorcontroller doorcontroller = objectForInteraction.GetComponent<Doorcontroller>();
 
-            Debug.Log("door model pomenyat");
+            doorcontroller.ShowPrompt();
+
+            Debug.Log("change door sprite");
             doorcontroller.OpenDoor();
         }
     }
@@ -57,7 +59,15 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == objectForInteraction)
+        {
+            if (objectForInteraction.CompareTag("Door"))
+            {
+                objectForInteraction.GetComponent<Doorcontroller>().HidePrompt();
+            }
+
             isStaying = false;
+        }
+
 
     }
 
@@ -69,10 +79,8 @@ public class PlayerController : MonoBehaviour
         {
             case "Door":
                 {
-                    Debug.Log("ÿ δβεπό!!");
                     if (interactedObject.GetComponent<Doorcontroller>().isOpened)
                     {
-                        Debug.Log("open");
                         interactedObject.GetComponent<Doorcontroller>().LoadNextLevel();
                     }
 
@@ -85,7 +93,6 @@ public class PlayerController : MonoBehaviour
 
             default:
                 {
-                    Debug.Log("ÿ ΰφσΰσσσσσσσσσσσσσσστμ");
                     break;
                 }
         }

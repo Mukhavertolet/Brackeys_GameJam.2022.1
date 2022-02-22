@@ -13,6 +13,11 @@ public class Doorcontroller : MonoBehaviour
     public bool isOpened = false;
 
 
+    private void Awake()
+    {
+        text.SetActive(false);
+    }
+
     private void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
@@ -24,6 +29,16 @@ public class Doorcontroller : MonoBehaviour
         isOpened = true;
 
 
+    }
+
+    public void ShowPrompt()
+    {
+        text.SetActive(true);
+    }
+
+    public void HidePrompt()
+    {
+        text.SetActive(false);
     }
 
     public void LoadNextLevel()
