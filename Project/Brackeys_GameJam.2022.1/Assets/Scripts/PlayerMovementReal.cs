@@ -51,7 +51,8 @@ public class PlayerMovementReal : MonoBehaviour
                 transform.localScale = new Vector2(-1, 1);
             }
 
-            gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
+
+            
             ChangeAnimation("WalkReal");
         }
         else
@@ -61,7 +62,12 @@ public class PlayerMovementReal : MonoBehaviour
 
     }
 
-    
+    private void FixedUpdate()
+    {
+        gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
+    }
+
+
     private void Jump()
     {
         Debug.Log("Jump");

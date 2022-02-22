@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     private string currentAnimation;
-    
 
+    private float direction;
 
 
     private void Awake()
@@ -37,19 +37,23 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
             Jump();
 
-        float direction = Input.GetAxisRaw("Horizontal");
+        direction = Input.GetAxisRaw("Horizontal");
 
         if (direction != 0)
         {
             transform.localScale = new Vector2(1 * direction, 1);
 
-            gameObject.transform.Translate(direction * moveSpeed * Time.deltaTime, 0, 0);
             ChamgeAnimation("Walk");
         }
         else
         {
             ChamgeAnimation("Idle");
         }
+    }
+
+    private void FixedUpdate()
+    {
+        gameObject.transform.Translate(direction * moveSpeed * Time.deltaTime, 0, 0);
     }
 
 
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D hitColliders2D = Physics2D.BoxCast(boxCollider2D.bounds.center, new Vector2(boxCollider2D.transform.localScale.x - 0.1f, boxCollider2D.transform.localScale.y + 0.5f), 0, Vector2.down, 0, groundLayerMask);
+        RaycastHit2D hitColliders2D = Physics2D.BoxCast(boxCollider2D.bounds.center, new Vector2(boxCollider2D.transform.localScale.x - 0.3f, boxCollider2D.transform.localScale.y + 0.5f), 0, Vector2.down, 0, groundLayerMask);
 
         return hitColliders2D.collider != null;
     }

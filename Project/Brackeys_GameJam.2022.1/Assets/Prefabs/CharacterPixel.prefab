@@ -501,13 +501,10 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  moveSpeed: 4
+  moveSpeed: 5
   jumpDir: {x: 0, y: 1}
   jumpStrength: 18
   boxCollider2D: {fileID: 7612890368384124051}
-  animationList:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &7612890369704898906
 MonoBehaviour:
   m_ObjectHideFlags: 0
