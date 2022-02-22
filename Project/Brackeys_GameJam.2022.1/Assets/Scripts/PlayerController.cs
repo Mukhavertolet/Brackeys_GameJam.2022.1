@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isHiding = false;
     public bool allowWalking = true;
+    public bool allowInteraction = true;
 
     public bool isGrounded;
 
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
         if (isStaying)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W) && allowInteraction)
             {
                 Interact(objectForInteraction);
             }
@@ -138,6 +139,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Hide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
+        allowInteraction = false;
+
         if (!isGrounded)
             speed = 12;
 
@@ -155,11 +158,14 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
+        allowInteraction = true;
         yield return null;
     }
 
     public IEnumerator UnHide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
+        allowInteraction = false;
+
         if (!isGrounded)
             speed = 12;
 
@@ -178,6 +184,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
+        allowInteraction = true;
         yield return null;
     }
 
