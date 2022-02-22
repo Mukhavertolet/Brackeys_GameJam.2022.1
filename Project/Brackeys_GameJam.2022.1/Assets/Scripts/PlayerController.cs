@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isHiding = false;
     public bool allowWalking = true;
-    public bool allowInteraction = true;
 
     public bool isGrounded;
 
@@ -18,17 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float hidingSpeed = 10;
 
-    //[SerializeField] private SpriteRenderer headSprite;
-    //[SerializeField] private SpriteRenderer bodySprite;
-    //[SerializeField] private SpriteRenderer legLSprite;
-    //[SerializeField] private SpriteRenderer legRSprite;
-
-    //[SerializeField] private Color lightColor;
-    //[SerializeField] private Color darkColor;
-
-    //[SerializeField] private float colorChangeStep = 1;
-
-
+    //public GameObject door;
 
 
     private void Update()
@@ -36,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
         if (isStaying)
         {
-            if (Input.GetKeyDown(KeyCode.W) && allowInteraction)
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 Interact(objectForInteraction);
             }
@@ -69,6 +58,8 @@ public class PlayerController : MonoBehaviour
             rockController.ShowPrompt();
         }
     }
+
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -147,15 +138,11 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Hide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
-        allowInteraction = false;
-
         if (!isGrounded)
             speed = 12;
 
         int i = 0;
         float t = 0;
-
-        //StartCoroutine(ChangeCharColor(lightColor, darkColor));
 
         while (Vector2.Distance(hidingChar.transform.position, hidePos) > 0.1)
         {
@@ -168,14 +155,11 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        allowInteraction = true;
         yield return null;
     }
 
     public IEnumerator UnHide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
-        allowInteraction = false;
-
         if (!isGrounded)
             speed = 12;
 
@@ -193,50 +177,9 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        //StartCoroutine(ChangeCharColor(darkColor, lightColor));
 
-
-        allowInteraction = true;
         yield return null;
     }
-
-
-
-
-    //public IEnumerator ChangeCharColor(Color fromColor, Color toColor)
-    //{
-    //    float t = 0;
-
-    //    Color currentColor = fromColor;
-
-    //    if (currentColor.r < toColor.r || currentColor.g < toColor.g || currentColor.b < toColor.b)
-    //    {
-    //        while (currentColor != toColor)
-    //        {
-    //            t += colorChangeStep * Time.deltaTime;
-
-    //            headSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            bodySprite.color = Color.Lerp(fromColor, toColor, t);
-    //            legLSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            legRSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            yield return null;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        while (currentColor != toColor)
-    //        {
-    //            headSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            bodySprite.color = Color.Lerp(fromColor, toColor, t);
-    //            legLSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            legRSprite.color = Color.Lerp(fromColor, toColor, t);
-    //            yield return null;
-    //        }
-    //    }
-
-
-    //    yield return null;
-    //}
 
 
 }
