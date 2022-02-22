@@ -59,6 +59,8 @@ public class PlayerMovementReal : MonoBehaviour
             ChangeAnimation("IdleReal");
         }
 
+        playerController.isGrounded = IsGrounded();
+
     }
 
     private void FixedUpdate()

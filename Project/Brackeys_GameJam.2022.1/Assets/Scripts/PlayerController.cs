@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public bool isHiding = false;
     public bool allowWalking = true;
 
+    public bool isGrounded;
+
 
     [SerializeField] private bool isStaying = false;
     [SerializeField] private GameObject objectForInteraction;
@@ -136,6 +138,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Hide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
+        if (!isGrounded)
+            speed = 12;
 
         int i = 0;
         float t = 0;
@@ -156,6 +160,9 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator UnHide(GameObject hidingChar, Vector2 initialPos, Vector2 hidePos, float speed)
     {
+        if (!isGrounded)
+            speed = 12;
+
         int i = 0;
         float t = 0;
 
