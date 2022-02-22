@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     public BoxCollider2D boxCollider2D;
 
+    private Animator animator;
+    private string currentAnimation;
+    
+
 
 
     private void Awake()
@@ -24,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,14 +37,19 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
             Jump();
 
+        float direction = Input.GetAxisRaw("Horizontal");
 
-    }
+        if (direction != 0)
+        {
+            transform.localScale = new Vector2(1 * direction, 1);
 
-    private void FixedUpdate()
-    {
-        gameObject.transform.Translate(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
-
-
+            gameObject.transform.Translate(direction * moveSpeed * Time.deltaTime, 0, 0);
+            ChamgeAnimation("Walk");
+        }
+        else
+        {
+            ChamgeAnimation("Idle");
+        }
     }
 
 
@@ -57,5 +66,12 @@ public class PlayerMovement : MonoBehaviour
         return hitColliders2D.collider != null;
     }
 
+    void ChamgeAnimation(string animation)
+    {
+        if (currentAnimation == animation)
+            return;
 
+        animator.Play(animation);
+        currentAnimation = animation;
+    }
 }

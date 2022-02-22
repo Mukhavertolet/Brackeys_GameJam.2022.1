@@ -14,6 +14,9 @@ public class PlayerMovementReal : MonoBehaviour
 
     public BoxCollider2D boxCollider2D;
 
+    private Animator animator;
+    private string currentAnimation;
+
 
 
     private void Awake()
@@ -24,26 +27,41 @@ public class PlayerMovementReal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
             Jump();
 
+        float direction = Input.GetAxis("Horizontal");
+
+        if (direction != 0)
+        {
+            if (direction > 0)
+            {
+                transform.localScale = new Vector2(1, 1);
+            }
+            else if (direction < 0)
+            {
+                transform.localScale = new Vector2(-1, 1);
+            }
+
+            gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
+            ChangeAnimation("WalkReal");
+        }
+        else
+        {
+            ChangeAnimation("IdleReal");
+        }
 
     }
 
-    private void FixedUpdate()
-    {
-        gameObject.transform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
-
-
-    }
-
-
+    
     private void Jump()
     {
         Debug.Log("Jump");
@@ -57,5 +75,13 @@ public class PlayerMovementReal : MonoBehaviour
         return hitColliders2D.collider != null;
     }
 
+    void ChangeAnimation(string animation)
+    {
+        if (currentAnimation == animation)
+            return;
 
+        animator.Play(animation);
+        currentAnimation = animation;
+            
+    }
 }
