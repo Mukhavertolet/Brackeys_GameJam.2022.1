@@ -54,10 +54,16 @@ public class PlayerMovementReal : MonoBehaviour
             if (playerController.allowWalking)
                 ChangeAnimation("WalkReal");
         }
-        else
+        else if(!playerController.isHiding)
         {
             ChangeAnimation("IdleReal");
         }
+
+        if (playerController.isHiding)
+        {
+            ChangeAnimation("HideReal");
+        }
+        
 
         playerController.isGrounded = IsGrounded();
 
