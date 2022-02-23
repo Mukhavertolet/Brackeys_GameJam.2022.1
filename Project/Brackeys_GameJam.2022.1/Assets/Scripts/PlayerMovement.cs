@@ -81,7 +81,11 @@ public class PlayerMovement : MonoBehaviour
             0,
             Vector2.down, 0, groundLayerMask);
 
-        
+        if (hitColliders2D.collider != null)
+        {
+            StartCoroutine(CoyoteTime(coyoteTime));
+        }
+
 
         return hitColliders2D.collider != null;
     }
