@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         objectForInteraction = collision.gameObject;
 
         if (objectForInteraction.CompareTag("Key"))
@@ -57,6 +56,11 @@ public class PlayerController : MonoBehaviour
         {
             RockController rockController = objectForInteraction.GetComponent<RockController>();
             rockController.ShowPrompt();
+        }
+        else if(objectForInteraction.CompareTag("ScreenChangeBox"))
+        {
+            ScreenChange screenChange = objectForInteraction.GetComponent<ScreenChange>();
+            StartCoroutine(screenChange.ChangeScreen(gameObject));
         }
     }
 

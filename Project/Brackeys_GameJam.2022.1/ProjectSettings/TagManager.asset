@@ -7,6 +7,8 @@ TagManager:
   - Key
   - Door
   - Rock
+  - ScreenChangeBox
+  - CameraPos
   layers:
   - Default
   - TransparentFX
