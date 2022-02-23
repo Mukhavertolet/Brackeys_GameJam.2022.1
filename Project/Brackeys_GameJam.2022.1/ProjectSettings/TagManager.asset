@@ -12,6 +12,7 @@ TagManager:
   - DeathZone
   - TheKey
   - GameManager
+  - Lock
   layers:
   - Default
   - TransparentFX

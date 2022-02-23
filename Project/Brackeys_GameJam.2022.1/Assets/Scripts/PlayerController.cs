@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-
+        hasTheKey = gameManager.playerHasTheKey;
     }
 
 
@@ -46,6 +47,10 @@ public class PlayerController : MonoBehaviour
                 Interact(objectForInteraction);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
 
@@ -84,6 +89,12 @@ public class PlayerController : MonoBehaviour
         else if (objectForInteraction.CompareTag("TheKey"))
         {
             hasTheKey = true;
+            gameManager.playerHasTheKey = hasTheKey;
+            Destroy(collision.gameObject);
+        }
+        else if (objectForInteraction.CompareTag("Lock") && hasTheKey)
+        {
+            hasTheKey = false;
             gameManager.playerHasTheKey = hasTheKey;
             Destroy(collision.gameObject);
         }
