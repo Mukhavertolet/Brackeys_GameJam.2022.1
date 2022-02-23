@@ -7,7 +7,11 @@ using TMPro;
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI TextGameOdject;
+    public float timeBetweenLetters = 0.1f;
+
     private string text;
+
+
 
     private void Start()
     {
@@ -21,7 +25,7 @@ public class Dialog : MonoBehaviour
         foreach (char abc in text)
         {
             TextGameOdject.text += abc;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(timeBetweenLetters);
         }
     }
 }
