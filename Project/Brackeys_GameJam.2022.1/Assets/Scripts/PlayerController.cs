@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public bool hasKey = false;
+    public bool hasTheKey;
 
     public bool isHiding = false;
     public bool allowWalking = true;
     public bool allowInteraction = true;
+
 
     public bool isGrounded;
 
@@ -20,10 +24,21 @@ public class PlayerController : MonoBehaviour
 
     //public GameObject door;
 
+    private void Awake()
+    {
+        //bruh
+        //DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+    }
+
 
     private void Update()
     {
-
         if (isStaying)
         {
             if (Input.GetKeyDown(KeyCode.W) && allowInteraction)
@@ -61,6 +76,16 @@ public class PlayerController : MonoBehaviour
         {
             ScreenChange screenChange = objectForInteraction.GetComponent<ScreenChange>();
             StartCoroutine(screenChange.ChangeScreen(gameObject));
+        }
+        else if (objectForInteraction.CompareTag("DeathZone"))
+        {
+            StartDeath(objectForInteraction.GetComponent<DeathController>());
+        }
+        else if (objectForInteraction.CompareTag("TheKey"))
+        {
+            hasTheKey = true;
+            gameManager.playerHasTheKey = hasTheKey;
+            Destroy(collision.gameObject);
         }
     }
 
@@ -190,6 +215,11 @@ public class PlayerController : MonoBehaviour
 
         allowInteraction = true;
         yield return null;
+    }
+
+    public void StartDeath(DeathController deathController)
+    {
+        StartCoroutine(deathController.DeathSequence());
     }
 
 

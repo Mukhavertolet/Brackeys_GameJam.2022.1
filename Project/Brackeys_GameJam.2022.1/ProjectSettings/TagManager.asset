@@ -9,6 +9,9 @@ TagManager:
   - Rock
   - ScreenChangeBox
   - CameraPos
+  - DeathZone
+  - TheKey
+  - GameManager
   layers:
   - Default
   - TransparentFX
