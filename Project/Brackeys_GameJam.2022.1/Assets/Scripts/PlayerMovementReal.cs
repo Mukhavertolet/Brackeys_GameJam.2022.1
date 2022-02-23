@@ -11,6 +11,8 @@ public class PlayerMovementReal : MonoBehaviour
 
     public Vector2 jumpDir;
     public float jumpStrength = 1;
+    [SerializeField] private float coyoteTime = 0.05f;
+    private bool allowJumpCheck = true;
 
     public BoxCollider2D boxCollider2D;
 
@@ -84,13 +86,35 @@ public class PlayerMovementReal : MonoBehaviour
 
     private bool IsGrounded()
     {
+        if (!allowJumpCheck)
+            return true;
+
         RaycastHit2D hitColliders2D = Physics2D.BoxCast(new Vector2(boxCollider2D.bounds.center.x, boxCollider2D.bounds.center.y - 0.3f),
             new Vector2(boxCollider2D.transform.localScale.x - 0.1f,
             boxCollider2D.transform.localScale.y + 0.2f),
             0,
             Vector2.down, 0, groundLayerMask);
+        
+        if (hitColliders2D.collider != null)
+        {
+            StartCoroutine(CoyoteTime(coyoteTime));
+        }
 
         return hitColliders2D.collider != null;
+    }
+
+    public IEnumerator CoyoteTime(float coyoteTime)
+    {
+        allowJumpCheck = false;
+
+        for (float t = 0; t <= coyoteTime; t += 0.01f)
+        {
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        allowJumpCheck = true;
+
+        yield return null;
     }
 
     void ChangeAnimation(string animation)

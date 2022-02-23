@@ -3186,6 +3186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPixel
       objectReference: {fileID: 0}
+    - target: {fileID: 7612890369704898902, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
+      propertyPath: coyoteTime
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7612890369704898903, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
       propertyPath: m_RootOrder
       value: 4
