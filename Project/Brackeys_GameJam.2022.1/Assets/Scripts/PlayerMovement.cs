@@ -61,8 +61,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
         Debug.Log("Jump");
-        gameObject.GetComponent<Rigidbody2D>().AddForce(jumpDir * jumpStrength, ForceMode2D.Impulse);
+
+
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(jumpDir * jumpStrength, ForceMode2D.Impulse);
     }
 
     private bool IsGrounded()
@@ -76,10 +81,7 @@ public class PlayerMovement : MonoBehaviour
             0,
             Vector2.down, 0, groundLayerMask);
 
-        if(hitColliders2D.collider != null)
-        {
-            StartCoroutine(CoyoteTime(coyoteTime));
-        }
+        
 
         return hitColliders2D.collider != null;
     }

@@ -80,8 +80,13 @@ public class PlayerMovementReal : MonoBehaviour
 
     private void Jump()
     {
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+
         Debug.Log("Jump");
-        gameObject.GetComponent<Rigidbody2D>().AddForce(jumpDir * jumpStrength, ForceMode2D.Impulse);
+
+
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(jumpDir * jumpStrength, ForceMode2D.Impulse);
     }
 
     private bool IsGrounded()
