@@ -128,6 +128,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 245525968153795066, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
   m_PrefabInstance: {fileID: 253008388}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &70765800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70765799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f818758f5b58a674280a24a7c7d09d90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultResolution: {x: 2350, y: 1080}
+  WidthOrHeight: 0
 --- !u!1001 &160839441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,7 +319,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pixel Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -472596607397755081, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
 --- !u!4 &347618923 stripped
 Transform:
