@@ -367,10 +367,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 245525968153795065, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
-      propertyPath: orthographic size
-      value: 4.7
-      objectReference: {fileID: 0}
     - target: {fileID: 245525968153795066, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
       propertyPath: m_Name
       value: Pixel Camera

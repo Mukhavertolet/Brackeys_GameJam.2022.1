@@ -200,10 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -472596607397755081, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
-      propertyPath: DefaultResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 245525968153794822, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -247,10 +243,6 @@ PrefabInstance:
     - target: {fileID: 245525968153794822, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 245525968153795065, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
-      propertyPath: orthographic size
-      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 245525968153795066, guid: 99eae13ba13aae24791c370a548f6f79, type: 3}
       propertyPath: m_Name
