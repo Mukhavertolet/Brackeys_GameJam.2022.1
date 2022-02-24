@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem runParticle;
     [SerializeField] private ParticleSystem jumpParticle;
 
+    [SerializeField] private GameObject Key;
+    [SerializeField] private bool keyParticleIsOn;
+
+
+    private GameObject keyController;
+
 
     //public GameObject door;
 
@@ -41,12 +47,13 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hasTheKey = gameManager.playerHasTheKey;
        
-
     }
 
 
-    private void Update()
-    {   
+    void Update()
+    {
+        
+
         if (isGrounded)
         {
             if (direction != 0)
@@ -87,14 +94,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {   
         objectForInteraction = collision.gameObject;
 
         if (objectForInteraction.CompareTag("Key"))
         {
             hasKey = true;
+
             Destroy(collision.gameObject);
+            
         }
         else if (objectForInteraction.CompareTag("Door") && hasKey)
         {

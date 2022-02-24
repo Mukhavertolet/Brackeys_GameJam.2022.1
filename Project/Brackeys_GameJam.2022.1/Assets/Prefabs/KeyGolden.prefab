@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3266556531820863664}
   - component: {fileID: 3266556531820863665}
   - component: {fileID: 3266556531820863666}
+  - component: {fileID: 6090740167380031048}
   m_Layer: 7
   m_Name: KeyGolden
   m_TagString: Key
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1285377813
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 3373711977991309399, guid: bad43c828d2bcb448ad8917bc032071a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5625}
   m_EdgeRadius: 0
+--- !u!114 &6090740167380031048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266556531820863667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ed48fce199fc546af3eaf01d4e9ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 8198704741511244202, guid: ad0b62a27b812a44bbda568759026702, type: 3}
