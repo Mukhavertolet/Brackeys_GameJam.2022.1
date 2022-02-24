@@ -104,6 +104,11 @@ public class PlayerController : MonoBehaviour
             gameManager.playerHasTheKey = hasTheKey;
             Destroy(collision.gameObject);
         }
+        else if (objectForInteraction.CompareTag("BeastDetectBox"))
+        {
+            objectForInteraction.GetComponent<BeastLevel2_3>().Collided(gameObject);
+            //Destroy(collision.gameObject);
+        }
     }
 
 
@@ -115,6 +120,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log("staying");
             isStaying = true;
         }
+
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+            objectForInteraction = collision.gameObject;
+            RockController rockController = objectForInteraction.GetComponent<RockController>();
+            rockController.ShowPrompt();
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -236,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath(DeathController deathController)
     {
-        StartCoroutine(deathController.DeathSequence());
+        StartCoroutine(deathController.DeathSequence(gameObject.GetComponent<PlayerController>()));
     }
 
 

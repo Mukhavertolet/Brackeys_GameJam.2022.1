@@ -13,6 +13,8 @@ TagManager:
   - TheKey
   - GameManager
   - Lock
+  - BeastKillBox
+  - BeastDetectBox
   layers:
   - Default
   - TransparentFX

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 6392918688230050314}
   m_Layer: 9
   m_Name: CharacterReal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   moveSpeed: 4
   jumpDir: {x: 0, y: 1}
   jumpStrength: 9
+  coyoteTime: 0.05
   boxCollider2D: {fileID: 7395509540398572390}
 --- !u!114 &7395509539077871279
 MonoBehaviour:
@@ -226,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasKey: 0
+  hasTheKey: 0
   isHiding: 0
   allowWalking: 1
   allowInteraction: 1

@@ -22,7 +22,7 @@ public class DeathController : MonoBehaviour
 
     }
 
-    public IEnumerator DeathSequence()
+    public IEnumerator DeathSequence(PlayerController playerController)
     {
         //play animation (depends on type of death zone player got in)
 
@@ -31,6 +31,19 @@ public class DeathController : MonoBehaviour
             case "PixelFallRegular":
                 {
                     yield return new WaitForSeconds(0.3f);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    break;
+                }
+            case "PixelSpike":
+                {
+                    //yield return new WaitForSeconds(0.3f);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    break;
+                }
+            case "RealHand":
+                {
+                    //yield return new WaitForSeconds(0.3f);
+                    StartCoroutine(KillTimer(1f, playerController));
                     break;
                 }
             default:
@@ -40,11 +53,31 @@ public class DeathController : MonoBehaviour
 
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
 
 
         yield return null;
+    }
+
+    private IEnumerator KillTimer(float timeLimit, PlayerController playerController)
+    {
+        for (float t = 0; t < timeLimit; t += 0.1f)
+        {
+            Debug.Log("trhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrho");
+            yield return new WaitForSeconds(0.1f); 
+
+            if (playerController.isHiding)
+            {
+                break;
+            }
+        }
+        if (!playerController.isHiding)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        yield return null;
+
+
     }
 
 
