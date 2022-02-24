@@ -63,21 +63,27 @@ public class PlayerController : MonoBehaviour
             hasKey = true;
             Destroy(collision.gameObject);
         }
-        else if (objectForInteraction.CompareTag("Door") && hasKey)
+        else if (objectForInteraction.CompareTag("Door"))
         {
             Doorcontroller doorcontroller = objectForInteraction.GetComponent<Doorcontroller>();
 
-            doorcontroller.ShowPrompt();
+            if (doorcontroller.isOpened)
+                doorcontroller.ShowPrompt();
+
+            if (hasKey)
+            {
+                doorcontroller.ShowPrompt();
+                doorcontroller.OpenDoor();
+            }
 
             Debug.Log("change door sprite");
-            doorcontroller.OpenDoor();
         }
         else if (objectForInteraction.CompareTag("Rock"))
         {
             RockController rockController = objectForInteraction.GetComponent<RockController>();
             rockController.ShowPrompt();
         }
-        else if(objectForInteraction.CompareTag("ScreenChangeBox"))
+        else if (objectForInteraction.CompareTag("ScreenChangeBox"))
         {
             ScreenChange screenChange = objectForInteraction.GetComponent<ScreenChange>();
             StartCoroutine(screenChange.ChangeScreen(gameObject));
