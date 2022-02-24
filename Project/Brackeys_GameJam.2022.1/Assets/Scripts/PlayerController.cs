@@ -14,14 +14,19 @@ public class PlayerController : MonoBehaviour
     public bool allowWalking = true;
     public bool allowInteraction = true;
 
-
     public bool isGrounded;
+
+    public float direction;
 
 
     [SerializeField] private bool isStaying = false;
     [SerializeField] private GameObject objectForInteraction;
 
     [SerializeField] private float hidingSpeed = 10;
+
+    [SerializeField] private ParticleSystem runParticle;
+    [SerializeField] private ParticleSystem jumpParticle;
+
 
     //public GameObject door;
 
@@ -35,12 +40,33 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hasTheKey = gameManager.playerHasTheKey;
+       
+
     }
 
 
     private void Update()
-    {
-        if (isStaying)
+    {   
+        if (isGrounded)
+        {
+            if (direction != 0)
+            {
+                runParticle.Play();
+            }
+            else
+            {
+                runParticle.Stop();
+            }
+            
+
+        }
+
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpParticle.Play();
+        }
+
+            if (isStaying)
         {
             if (Input.GetKeyDown(KeyCode.W) && allowInteraction)
             {
@@ -53,9 +79,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Ground")
+        {
+            jumpParticle.Play();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    {   
         objectForInteraction = collision.gameObject;
 
         if (objectForInteraction.CompareTag("Key"))

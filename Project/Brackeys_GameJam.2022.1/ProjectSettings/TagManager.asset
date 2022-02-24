@@ -13,6 +13,7 @@ TagManager:
   - TheKey
   - GameManager
   - Lock
+  - Ground
   layers:
   - Default
   - TransparentFX

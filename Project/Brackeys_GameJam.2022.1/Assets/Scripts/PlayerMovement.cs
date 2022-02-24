@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float direction;
 
+    
+    private PlayerController playerController;
+
+
 
     private void Awake()
     {
@@ -31,27 +35,45 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        playerController = gameObject.GetComponent<PlayerController>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-            Jump();
+        playerController.isGrounded = IsGrounded();
 
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
+        {
+            
+            Jump();
+        }
+        
         direction = Input.GetAxisRaw("Horizontal");
+
+        playerController.direction = direction;
 
         if (direction != 0)
         {
-            transform.localScale = new Vector2(1 * direction, 1);
+            transform.localScale = new Vector2(direction, 1);
 
             ChangeAnimation("Walk");
+
         }
         else
         {
             ChangeAnimation("Idle");
+
+            
         }
+
+
     }
+
+  
 
     private void FixedUpdate()
     {
@@ -61,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        
+
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
 
         Debug.Log("Jump");
@@ -68,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.AddForce(jumpDir * jumpStrength, ForceMode2D.Impulse);
+
+        
     }
 
     private bool IsGrounded()
