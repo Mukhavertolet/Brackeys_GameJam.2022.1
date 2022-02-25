@@ -46,6 +46,12 @@ public class DeathController : MonoBehaviour
                     StartCoroutine(KillTimer(1f, playerController));
                     break;
                 }
+            case "BeastLight":
+                {
+                    //yield return new WaitForSeconds(0.3f);
+                    StartCoroutine(KillTimer(0.5f, playerController));
+                    break;
+                }
             default:
                 {
                     break;
