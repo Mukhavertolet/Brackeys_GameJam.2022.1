@@ -21,6 +21,20 @@ public class PlayerMovement : MonoBehaviour
 
     private float direction;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip footstepsSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] public AudioClip landingSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip spikeDeathSound;
+
+    [SerializeField] private PlayerController playerController;
+
+    [SerializeField] private GameObject audioSourceObject;
+    [SerializeField] private AudioSource audioSourceObj;
+
+    [SerializeField] public string deathZoneType;
+    
 
     private void Awake()
     {
@@ -31,27 +45,64 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSourceObj = audioSourceObject.GetComponent<AudioSource>();
+        //playerController.audioSource = audioSource;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
-            Jump();
+        {
+            audioSource.clip = jumpSound;
+            
+            audioSource.Play();
+
+           Jump();
+        }
 
         direction = Input.GetAxisRaw("Horizontal");
 
         if (direction != 0)
         {
-            transform.localScale = new Vector2(1 * direction, 1);
+            Debug.Log(IsGrounded());
 
+            if (IsGrounded())
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = footstepsSound;
+
+                    audioSource.Play();
+
+                }
+                
+
+            }
+            transform.localScale = new Vector2(1 * direction, 1);
+            
             ChangeAnimation("Walk");
         }
         else
         {
+            if (audioSource.clip != jumpSound && audioSource != landingSound)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+                
+            }
+
             ChangeAnimation("Idle");
         }
+
+        
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -112,5 +163,26 @@ public class PlayerMovement : MonoBehaviour
 
         animator.Play(animation);
         currentAnimation = animation;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(LayerMask.LayerToName(collision.gameObject.layer));
+
+        if (LayerMask.LayerToName(collision.gameObject.layer)=="DeathZone")
+        {
+            if (!audioSourceObj.isPlaying)
+            {
+                audioSourceObj.PlayOneShot(deathSound);
+                
+            }
+        }
+        else if (LayerMask.LayerToName(collision.gameObject.layer) == "Spike")
+        {
+            if (!audioSourceObj.isPlaying)
+            {
+                audioSourceObj.PlayOneShot(spikeDeathSound);
+            }
+        }
     }
 }

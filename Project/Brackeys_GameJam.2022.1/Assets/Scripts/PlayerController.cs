@@ -23,6 +23,14 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float hidingSpeed = 10;
 
+    [SerializeField] private PlayerMovement playerMovement;
+
+    //[SerializeField] private AudioSource audioSource;
+    //[SerializeField] private AudioClip deathSound;
+    //[SerializeField] private AudioClip spikeDeathSound;
+
+    //[SerializeField] private GameObject audioSourceObject;
+
     //public GameObject door;
 
     private void Awake()
@@ -35,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hasTheKey = gameManager.playerHasTheKey;
+        //audioSource = audioSourceObject.GetComponent<AudioSource>();
     }
 
 
@@ -51,13 +60,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+         
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         objectForInteraction = collision.gameObject;
-
+        
         if (objectForInteraction.CompareTag("Key"))
         {
             hasKey = true;
@@ -109,12 +119,14 @@ public class PlayerController : MonoBehaviour
             objectForInteraction.GetComponent<BeastLevel2_3>().Collided(gameObject);
             //Destroy(collision.gameObject);
         }
+        
     }
 
 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        
         if (collision.gameObject == objectForInteraction)
         {
             Debug.Log("staying");
@@ -249,6 +261,21 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath(DeathController deathController)
     {
+        //if (!audioSource.isPlaying)
+        //{
+        //    if (deathController.deathZoneType == "PixelFallRegular")
+        //    {
+        //        audioSource.PlayOneShot(deathSound);
+        //    }
+        //    if (deathController.deathZoneType == "PixelSpike")
+        //    {
+        //        audioSource.PlayOneShot(spikeDeathSound);
+        //    }
+        //}
+        
+        //else audioSource.Play();
+
+
         StartCoroutine(deathController.DeathSequence(gameObject.GetComponent<PlayerController>()));
     }
 

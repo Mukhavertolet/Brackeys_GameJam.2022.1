@@ -114,6 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathZoneType: RealHand
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 0}
+  audioSourceObject: {fileID: 0}
 --- !u!95 &4880832384978428086
 Animator:
   serializedVersion: 3

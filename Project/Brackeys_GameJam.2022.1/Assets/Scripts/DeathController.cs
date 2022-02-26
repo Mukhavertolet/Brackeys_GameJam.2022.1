@@ -7,9 +7,7 @@ public class DeathController : MonoBehaviour
 {
     public string deathZoneType;
 
-
-
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -17,17 +15,16 @@ public class DeathController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     public IEnumerator DeathSequence(PlayerController playerController)
     {
         //play animation (depends on type of death zone player got in)
 
+
         switch (deathZoneType)
         {
+            
             case "PixelFallRegular":
                 {
                     yield return new WaitForSeconds(0.3f);
@@ -36,6 +33,7 @@ public class DeathController : MonoBehaviour
                 }
             case "PixelSpike":
                 {
+                    
                     //yield return new WaitForSeconds(0.3f);
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     break;
@@ -70,7 +68,7 @@ public class DeathController : MonoBehaviour
         for (float t = 0; t < timeLimit; t += 0.1f)
         {
             Debug.Log("trhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrhrho");
-            yield return new WaitForSeconds(0.1f); 
+            yield return new WaitForSeconds(0.1f);
 
             if (playerController.isHiding)
             {
@@ -85,6 +83,5 @@ public class DeathController : MonoBehaviour
 
 
     }
-
 
 }

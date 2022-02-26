@@ -235,6 +235,9 @@ MonoBehaviour:
   isStaying: 0
   objectForInteraction: {fileID: 0}
   hidingSpeed: 5
+  audioSource: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 1b51f4f3856f1094ab445d8800b934fd, type: 3}
+  audioSourceObject: {fileID: 0}
 --- !u!95 &6392918688230050314
 Animator:
   serializedVersion: 3
