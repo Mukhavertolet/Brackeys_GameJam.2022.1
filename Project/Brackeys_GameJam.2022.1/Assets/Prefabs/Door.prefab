@@ -392,3 +392,5 @@ MonoBehaviour:
   - {fileID: -4499003961145140639, guid: bad43c828d2bcb448ad8917bc032071a, type: 3}
   - {fileID: -6579356295670379132, guid: bad43c828d2bcb448ad8917bc032071a, type: 3}
   text: {fileID: 739976800893288430}
+  nextSceneName: Level.1-2
+  isOpened: 0

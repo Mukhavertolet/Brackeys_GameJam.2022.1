@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool isStaying = false;
     [SerializeField] private GameObject objectForInteraction;
+    [SerializeField] private GameObject door;
 
     [SerializeField] private float hidingSpeed = 10;
 
+<<<<<<< Updated upstream
     [SerializeField] private ParticleSystem runParticle;
     [SerializeField] private ParticleSystem jumpParticle;
 
@@ -33,7 +35,11 @@ public class PlayerController : MonoBehaviour
 
     private GameObject keyController;
 
+=======
+    [SerializeField] public PlayerMovement playerMovement;
+>>>>>>> Stashed changes
 
+   
     //public GameObject door;
 
     private void Awake()
@@ -46,13 +52,18 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         hasTheKey = gameManager.playerHasTheKey;
+<<<<<<< Updated upstream
        
+=======
+        
+>>>>>>> Stashed changes
     }
 
 
     void Update()
     {
         
+<<<<<<< Updated upstream
 
         if (isGrounded)
         {
@@ -74,7 +85,12 @@ public class PlayerController : MonoBehaviour
         }
 
             if (isStaying)
+=======
+        if (isStaying)
+>>>>>>> Stashed changes
         {
+            
+
             if (Input.GetKeyDown(KeyCode.W) && allowInteraction)
             {
                 Interact(objectForInteraction);
@@ -174,7 +190,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Interact(GameObject interactedObject)
+    public void Interact(GameObject interactedObject)
     {
         Debug.Log("interaction");
 
@@ -182,8 +198,10 @@ public class PlayerController : MonoBehaviour
         {
             case "Door":
                 {
+                    
                     if (interactedObject.GetComponent<Doorcontroller>().isOpened)
                     {
+
                         interactedObject.GetComponent<Doorcontroller>().LoadNextLevel();
                     }
 
@@ -272,8 +290,13 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath(DeathController deathController)
     {
+<<<<<<< Updated upstream
         StartCoroutine(deathController.DeathSequence());
+=======
+        
+        StartCoroutine(deathController.DeathSequence(gameObject.GetComponent<PlayerController>()));
+>>>>>>> Stashed changes
     }
 
-
+   
 }

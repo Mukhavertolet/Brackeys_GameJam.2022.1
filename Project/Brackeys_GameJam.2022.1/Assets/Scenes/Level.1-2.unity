@@ -2772,6 +2772,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterPixel
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 7612890369704898902, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 1366876617}
+    - target: {fileID: 7612890369704898902, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
+      propertyPath: audioSourceObject
+      value: 
+      objectReference: {fileID: 1603342937}
+    - target: {fileID: 7612890369704898902, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
+      propertyPath: door.Array.data[0]
+      value: 
+      objectReference: {fileID: 1366876617}
+>>>>>>> Stashed changes
     - target: {fileID: 7612890369704898903, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2951,6 +2966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9b461f7a300fad469e8789ea725020e, type: 3}
+--- !u!1 &1366876617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9015794990318943387, guid: b9b461f7a300fad469e8789ea725020e, type: 3}
+  m_PrefabInstance: {fileID: 1366876616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1384077333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5533709673466392570, guid: 8b8c7d9d17fbecf4a9f98bcced40fcc8, type: 3}

@@ -21,6 +21,11 @@ public class PlayerMovementReal : MonoBehaviour
 
     private PlayerController playerController;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip footstepsSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] public AudioClip landingSound;
+
 
     private void Awake()
     {
@@ -39,18 +44,38 @@ public class PlayerMovementReal : MonoBehaviour
     {
 
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && playerController.allowWalking)
+        {
+            audioSource.clip = jumpSound;
+            audioSource.PlayOneShot(jumpSound);
             Jump();
+        }
+        
+
 
         float direction = Input.GetAxis("Horizontal");
 
         if (direction != 0)
         {
+            if (IsGrounded())
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = footstepsSound;
+
+                    audioSource.Play();
+
+                }
+            }
+            
+
             if (direction > 0)
             {
+               
                 transform.localScale = new Vector2(1, 1);
             }
             else if (direction < 0)
             {
+                
                 transform.localScale = new Vector2(-1, 1);
             }
             if (playerController.allowWalking)
@@ -60,6 +85,7 @@ public class PlayerMovementReal : MonoBehaviour
         {
             ChangeAnimation("IdleReal");
         }
+        
 
         if (playerController.isHiding)
         {

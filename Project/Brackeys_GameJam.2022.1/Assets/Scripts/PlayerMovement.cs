@@ -21,10 +21,28 @@ public class PlayerMovement : MonoBehaviour
 
     private float direction;
 
+<<<<<<< Updated upstream
     
     private PlayerController playerController;
+=======
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip footstepsSound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] public AudioClip landingSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip spikeDeathSound;
+    [SerializeField] private AudioClip doorSound;
+
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private Doorcontroller doorController;
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
+=======
+    public GameObject[] door;
+
+>>>>>>> Stashed changes
 
     private void Awake()
     {
@@ -35,16 +53,23 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+<<<<<<< Updated upstream
 
         playerController = gameObject.GetComponent<PlayerController>();
 
 
+=======
+        audioSourceObj = audioSourceObject.GetComponent<AudioSource>();
+        
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
         playerController.isGrounded = IsGrounded();
+
+        
 
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
@@ -58,7 +83,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction != 0)
         {
+<<<<<<< Updated upstream
             transform.localScale = new Vector2(direction, 1);
+=======
+            
+
+            if (IsGrounded())
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = footstepsSound;
+
+                    audioSource.Play();
+>>>>>>> Stashed changes
 
             ChangeAnimation("Walk");
 
@@ -69,8 +106,20 @@ public class PlayerMovement : MonoBehaviour
 
             
         }
+        for (int i = 0; i < door.Length; i++)
+        {
+            if (door[i].GetComponent<Doorcontroller>().isOpened && Input.GetKeyDown(KeyCode.W))
+            {
+                audioSourceObj.PlayOneShot(doorSound);
+            }
 
+<<<<<<< Updated upstream
 
+=======
+        }
+        
+        
+>>>>>>> Stashed changes
     }
 
   

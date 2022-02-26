@@ -525,8 +525,23 @@ MonoBehaviour:
   jumpStrength: 18
   coyoteTime: 0.05
   boxCollider2D: {fileID: 7612890368384124051}
+<<<<<<< Updated upstream
   runParticle: {fileID: 1200309988839910118}
   jumpParticle: {fileID: 1149179145}
+=======
+  audioSource: {fileID: 927723137}
+  footstepsSound: {fileID: 8300000, guid: f921f92de13964e4fb3b552897f61025, type: 3}
+  jumpSound: {fileID: 8300000, guid: 5b5d5fd4d2b9662418ee760dff63f469, type: 3}
+  landingSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 1b51f4f3856f1094ab445d8800b934fd, type: 3}
+  spikeDeathSound: {fileID: 8300000, guid: 3b263be2d94473042ad4e9a7890148f7, type: 3}
+  doorSound: {fileID: 8300000, guid: 9c379f4b9ed13484896c117ab172d590, type: 3}
+  playerController: {fileID: 7612890369704898906}
+  doorController: {fileID: 0}
+  audioSourceObject: {fileID: 0}
+  audioSourceObj: {fileID: 0}
+  door: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!114 &7612890369704898906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +563,7 @@ MonoBehaviour:
   direction: 0
   isStaying: 0
   objectForInteraction: {fileID: 0}
+  door: {fileID: 0}
   hidingSpeed: 10
   runParticle: {fileID: 1200309988839910118}
   jumpParticle: {fileID: 1149179145}

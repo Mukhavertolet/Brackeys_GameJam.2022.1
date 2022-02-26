@@ -11,21 +11,47 @@ public class Dialog : MonoBehaviour
 
     private string text;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip typing;
 
+    public float time = 0.2f;
 
     private void Start()
     {
         text = TextGameOdject.text;
         TextGameOdject.text = "";
         StartCoroutine(TextCoroutine());
+        audioSource.clip = typing;
+        StartCoroutine(Play());
     }
 
+    private void Update()
+    {
+    }
     IEnumerator TextCoroutine()
     {
-        foreach (char abc in text)
+       foreach (char abc in text)
+       {
+           TextGameOdject.text += abc;
+           yield return new WaitForSeconds(timeBetweenLetters);
+       }
+    }
+
+    IEnumerator Play()
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(PlayCrtn());
+    }
+    IEnumerator PlayCrtn()
+    {
+        for (int i = 0; i < 3; i++)
         {
-            TextGameOdject.text += abc;
-            yield return new WaitForSeconds(timeBetweenLetters);
+            for (int j = 0; j < 13; j++)
+            {
+                audioSource.Play();
+                yield return new WaitForSeconds(timeBetweenLetters);
+            }
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }
