@@ -8,6 +8,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] public AudioSource audioSource;
     [SerializeField] public AudioClip klickSound;
     [SerializeField] public AudioClip hoverSound;
+    [SerializeField] public AudioClip happyJingle;
+
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "MenuEscape")
+            HappyJingle();
+    }
+
+
     public void Play()
     {
         
@@ -31,7 +41,12 @@ public class MenuController : MonoBehaviour
         audioSource.PlayOneShot(hoverSound);
     }
 
-  
-    
+    public void HappyJingle()
+    {
+        audioSource.PlayOneShot(happyJingle);
+    }
+
+
+
 }
 

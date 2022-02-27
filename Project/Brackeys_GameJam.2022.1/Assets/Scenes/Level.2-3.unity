@@ -910,6 +910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Source
       objectReference: {fileID: 0}
+    - target: {fileID: 2467146397086620884, guid: f757fa85046b12340b82d059a6bbe7d2, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2467146397086620885, guid: f757fa85046b12340b82d059a6bbe7d2, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -959,6 +963,11 @@ PrefabInstance:
 --- !u!1 &764395887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2467146397086620875, guid: f757fa85046b12340b82d059a6bbe7d2, type: 3}
+  m_PrefabInstance: {fileID: 764395886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &764395888 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2467146397086620884, guid: f757fa85046b12340b82d059a6bbe7d2, type: 3}
   m_PrefabInstance: {fileID: 764395886}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &774093843
@@ -1223,6 +1232,8 @@ MonoBehaviour:
   batya: {fileID: 1539421539}
   killBox: {fileID: 5364556232178873416, guid: 185313fc5593c6e4cb42a86955313e00, type: 3}
   hideText: {fileID: 8883883542089305788, guid: ea5c5c535a11dc941a80bcc4c336ace4, type: 3}
+  scarySound: {fileID: 8300000, guid: edd5e08ff3a2bff4e9f6b36290790147, type: 3}
+  audioSource: {fileID: 764395888}
 --- !u!1001 &1337342562
 PrefabInstance:
   m_ObjectHideFlags: 0

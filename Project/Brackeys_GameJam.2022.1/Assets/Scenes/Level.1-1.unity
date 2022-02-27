@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 4536642651682024498, guid: 27793098a81060f4dabaf94293a70a7f, type: 3}
       propertyPath: textSound
       value: 
-      objectReference: {fileID: 8300000, guid: 4537ba4f2fd63974aa520d34f13ee34e, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4536642651682024498, guid: 27793098a81060f4dabaf94293a70a7f, type: 3}
       propertyPath: audioSource
       value: 
