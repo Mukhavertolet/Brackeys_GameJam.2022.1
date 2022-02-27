@@ -138,10 +138,14 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1335533656}
+    - target: {fileID: 4536642651682024502, guid: 27793098a81060f4dabaf94293a70a7f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4536642652912185319, guid: 27793098a81060f4dabaf94293a70a7f, type: 3}
       propertyPath: m_text
-      value: "          \nA, D to move             \nSPACE to jump             \nW
-        to interact"
+      value: "A, D to move             \nSPACE to jump             \nW to interact            
+        \nR to restart             \nEsc to quit to menu"
       objectReference: {fileID: 0}
     - target: {fileID: 4536642652912185319, guid: 27793098a81060f4dabaf94293a70a7f, type: 3}
       propertyPath: m_VerticalAlignment

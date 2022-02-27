@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hide!
+  m_text: Run!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45ea69f56d6901d40a07854eb87ecc31, type: 2}
   m_sharedMaterial: {fileID: -7018587824946997095, guid: 45ea69f56d6901d40a07854eb87ecc31, type: 2}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 671326858418685257}
   - component: {fileID: 6921292356342081544}
   m_Layer: 5
-  m_Name: CanvasHideText
+  m_Name: CanvasRunText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &671326858418685257
 MonoBehaviour:
   m_ObjectHideFlags: 0
