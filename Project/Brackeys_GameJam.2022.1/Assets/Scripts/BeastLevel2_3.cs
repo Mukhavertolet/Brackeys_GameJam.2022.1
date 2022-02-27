@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BeastLevel2_3 : MonoBehaviour
 {
-    [SerializeField] private Transform batya; 
+    [SerializeField] private Transform batya;
     [SerializeField] private GameObject killBox;
-
+    [SerializeField] private GameObject hideText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class BeastLevel2_3 : MonoBehaviour
     public void Collided(GameObject player)
     {
         Debug.Log("Player collided");
+        Instantiate(hideText, new Vector3(transform.position.x, transform.position.y + 5, transform.position.z), Quaternion.identity);
         Instantiate(killBox, batya.position, Quaternion.identity);
 
 
