@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip doorSound;
+    [SerializeField] private AudioClip levelSound;
+
+    [SerializeField] public GameObject audioSourceObject;
 
     //[SerializeField] private GameObject audioSourceObject;
 
@@ -174,8 +177,8 @@ public class PlayerController : MonoBehaviour
                 {
                     if (interactedObject.GetComponent<Doorcontroller>().isOpened)
                     {
-                        
-                        interactedObject.GetComponent<Doorcontroller>().LoadNextLevel();
+                        audioSourceObject.GetComponent<AudioSource>().clip = levelSound;
+                        interactedObject.GetComponent<Doorcontroller>().LoadNextLevel(audioSourceObject.GetComponent<AudioSource>());
                     }
 
                     break;

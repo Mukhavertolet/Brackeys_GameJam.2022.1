@@ -21,6 +21,9 @@ public class PlayerMovementReal : MonoBehaviour
 
     private PlayerController playerController;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField]private AudioClip jumpSound;
+
 
     private void Awake()
     {
@@ -39,7 +42,10 @@ public class PlayerMovementReal : MonoBehaviour
     {
 
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space) && playerController.allowWalking)
+        {
+            audioSource.PlayOneShot(jumpSound);
             Jump();
+        }
 
         float direction = Input.GetAxis("Horizontal");
 

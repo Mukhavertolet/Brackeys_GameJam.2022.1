@@ -45,8 +45,9 @@ public class Doorcontroller : MonoBehaviour
         text.SetActive(false);
     }
 
-    public void LoadNextLevel()
+    public void LoadNextLevel(AudioSource audioSource)
     {
+        audioSource.Play();
         SceneManager.LoadScene(nextSceneName);
     }
 

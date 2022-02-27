@@ -531,7 +531,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 1b51f4f3856f1094ab445d8800b934fd, type: 3}
   spikeDeathSound: {fileID: 8300000, guid: 3b263be2d94473042ad4e9a7890148f7, type: 3}
   playerController: {fileID: 7612890369704898906}
-  audioSourceObject: {fileID: 1945946250869868829, guid: ff6111c5efe31034f913ce8fa6e035d7, type: 3}
+  audioSourceObject: {fileID: 0}
   audioSourceObj: {fileID: 0}
   deathZoneType: 
 --- !u!114 &7612890369704898906
@@ -556,6 +556,10 @@ MonoBehaviour:
   objectForInteraction: {fileID: 0}
   hidingSpeed: 10
   playerMovement: {fileID: 0}
+  audioSource: {fileID: 927723137}
+  doorSound: {fileID: 8300000, guid: 9c379f4b9ed13484896c117ab172d590, type: 3}
+  levelSound: {fileID: 8300000, guid: 5ad58f6049e3ae04ea53b8ecf8d0cc40, type: 3}
+  audioSourceObject: {fileID: 0}
 --- !u!82 &927723137
 AudioSource:
   m_ObjectHideFlags: 0
