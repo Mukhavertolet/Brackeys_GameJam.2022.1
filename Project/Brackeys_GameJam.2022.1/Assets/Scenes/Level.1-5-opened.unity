@@ -5547,6 +5547,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7612890369704898906, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
+      propertyPath: levelSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 007d5b0d6e96a7e48ab00b0562b11a4b, type: 3}
+    - target: {fileID: 7612890369704898906, guid: 8dd61cee651789b49adb98c46a60dfc5, type: 3}
       propertyPath: audioSourceObject
       value: 
       objectReference: {fileID: 1472659293}

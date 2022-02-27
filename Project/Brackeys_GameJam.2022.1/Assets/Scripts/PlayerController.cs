@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip doorSound;
     [SerializeField] private AudioClip levelSound;
+    [SerializeField] private AudioClip deathSound;
 
     [SerializeField] public GameObject audioSourceObject;
 
@@ -266,20 +267,8 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath(DeathController deathController)
     {
-        //if (!audioSource.isPlaying)
-        //{
-        //    if (deathController.deathZoneType == "PixelFallRegular")
-        //    {
-        //        audioSource.PlayOneShot(deathSound);
-        //    }
-        //    if (deathController.deathZoneType == "PixelSpike")
-        //    {
-        //        audioSource.PlayOneShot(spikeDeathSound);
-        //    }
-        //}
-        
-        //else audioSource.Play();
 
+        audioSource.PlayOneShot(deathSound);
 
         StartCoroutine(deathController.DeathSequence(gameObject.GetComponent<PlayerController>()));
     }

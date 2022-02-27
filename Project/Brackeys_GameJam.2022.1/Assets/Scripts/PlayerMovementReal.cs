@@ -23,6 +23,7 @@ public class PlayerMovementReal : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField]private AudioClip jumpSound;
+    [SerializeField] private AudioClip footstepsSound;
 
 
     private void Awake()
@@ -49,8 +50,20 @@ public class PlayerMovementReal : MonoBehaviour
 
         float direction = Input.GetAxis("Horizontal");
 
+        
         if (direction != 0)
         {
+            if (IsGrounded())
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.clip = footstepsSound;
+
+                    audioSource.Play();
+
+                }
+
+            }
             if (direction > 0)
             {
                 transform.localScale = new Vector2(1, 1);
@@ -62,9 +75,18 @@ public class PlayerMovementReal : MonoBehaviour
             if (playerController.allowWalking)
                 ChangeAnimation("WalkReal");
         }
+        
         else if(!playerController.isHiding)
         {
             ChangeAnimation("IdleReal");
+        }
+
+        else if (audioSource.clip != jumpSound)
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
 
         if (playerController.isHiding)
@@ -136,5 +158,12 @@ public class PlayerMovementReal : MonoBehaviour
         animator.Play(animation);
         currentAnimation = animation;
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer)=="Ground")
+        {
+            audioSource.PlayOneShot(footstepsSound);
+        }
     }
 }
