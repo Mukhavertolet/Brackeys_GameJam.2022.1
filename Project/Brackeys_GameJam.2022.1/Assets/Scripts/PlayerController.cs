@@ -25,9 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
 
-    //[SerializeField] private AudioSource audioSource;
-    //[SerializeField] private AudioClip deathSound;
-    //[SerializeField] private AudioClip spikeDeathSound;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip doorSound;
 
     //[SerializeField] private GameObject audioSourceObject;
 
@@ -82,8 +81,9 @@ public class PlayerController : MonoBehaviour
 
             if (hasKey)
             {
+                audioSource.clip = doorSound;
                 doorcontroller.ShowPrompt();
-                doorcontroller.OpenDoor();
+                doorcontroller.OpenDoor(audioSource);
             }
 
             Debug.Log("change door sprite");
@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("staying");
             isStaying = true;
+            
         }
 
         if (collision.gameObject.CompareTag("Rock"))
@@ -173,6 +174,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (interactedObject.GetComponent<Doorcontroller>().isOpened)
                     {
+                        
                         interactedObject.GetComponent<Doorcontroller>().LoadNextLevel();
                     }
 

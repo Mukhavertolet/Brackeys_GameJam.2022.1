@@ -23,10 +23,16 @@ public class Doorcontroller : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[0];
     }
     
-    public void OpenDoor()
+    public void OpenDoor(AudioSource audioSource)
     {
+        if (!isOpened)
+        {
+            audioSource.Play();
+        }
         gameObject.GetComponent<SpriteRenderer>().sprite = sprites[1];
         isOpened = true;
+        
+
     }
 
     public void ShowPrompt()
