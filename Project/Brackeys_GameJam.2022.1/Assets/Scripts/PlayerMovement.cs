@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public AudioClip landingSound;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip spikeDeathSound;
+    
 
     [SerializeField] private PlayerController playerController;
 

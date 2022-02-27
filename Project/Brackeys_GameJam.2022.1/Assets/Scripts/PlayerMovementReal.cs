@@ -35,6 +35,7 @@ public class PlayerMovementReal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         animator = GetComponent<Animator>();
     }
 
@@ -53,7 +54,7 @@ public class PlayerMovementReal : MonoBehaviour
         
         if (direction != 0)
         {
-            if (IsGrounded())
+            if (IsGrounded()&& !playerController.isHiding)
             {
                 if (!audioSource.isPlaying)
                 {
@@ -93,7 +94,11 @@ public class PlayerMovementReal : MonoBehaviour
         {
             ChangeAnimation("HideReal");
         }
-        
+
+        if (playerController.isHiding)
+        {
+            audioSource.Stop();
+        }
 
         playerController.isGrounded = IsGrounded();
 

@@ -530,6 +530,7 @@ MonoBehaviour:
   landingSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 1b51f4f3856f1094ab445d8800b934fd, type: 3}
   spikeDeathSound: {fileID: 8300000, guid: 3b263be2d94473042ad4e9a7890148f7, type: 3}
+  keySound: {fileID: 0}
   playerController: {fileID: 7612890369704898906}
   audioSourceObject: {fileID: 0}
   audioSourceObj: {fileID: 0}
@@ -559,6 +560,8 @@ MonoBehaviour:
   audioSource: {fileID: 927723137}
   doorSound: {fileID: 8300000, guid: 9c379f4b9ed13484896c117ab172d590, type: 3}
   levelSound: {fileID: 8300000, guid: 5ad58f6049e3ae04ea53b8ecf8d0cc40, type: 3}
+  deathSound: {fileID: 0}
+  keySound: {fileID: 8300000, guid: 272ff6d8dfc76a942bcd54169d8ab3f0, type: 3}
   audioSourceObject: {fileID: 0}
 --- !u!82 &927723137
 AudioSource:

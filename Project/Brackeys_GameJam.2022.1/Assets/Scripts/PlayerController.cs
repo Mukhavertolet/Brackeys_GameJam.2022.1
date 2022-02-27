@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip doorSound;
     [SerializeField] private AudioClip levelSound;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip keySound;
 
     [SerializeField] public GameObject audioSourceObject;
 
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
         if (objectForInteraction.CompareTag("Key"))
         {
             hasKey = true;
+            audioSource.PlayOneShot(keySound);
             Destroy(collision.gameObject);
         }
         else if (objectForInteraction.CompareTag("Door"))
@@ -267,10 +269,8 @@ public class PlayerController : MonoBehaviour
 
     public void StartDeath(DeathController deathController)
     {
-
-        audioSource.PlayOneShot(deathSound);
-
         StartCoroutine(deathController.DeathSequence(gameObject.GetComponent<PlayerController>()));
+        audioSource.PlayOneShot(deathSound);
     }
 
 
